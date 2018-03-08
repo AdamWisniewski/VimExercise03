@@ -9,10 +9,9 @@ public class Refactor {
 
 	public HashMap<String, String> convertMessageToHashMap(<header from MQ>, <message from MQ>) {
 		
+		try {
 		List<String> headerFields = header.split("|");
-		
 		List<String> messageFields = message.split("|");
-				
 		Map<String, String> messageMap = new HashMap<String, String>();
 		
 		for (int i = 0; i < messageFields.size(); i++) {
@@ -20,10 +19,15 @@ public class Refactor {
 		}
 		
 		return messageMap;
+		
+		} catch (Exception e) {
+			System.out.println("Error while converting message to HashMap");
+		}
 	}
 	
 	public void decisionTree(messageMap.get(<messageTitle>) title) {
-		
+		try {
+				
 		switch(title){
 		case "AST":
 		case "ASL":
@@ -36,6 +40,10 @@ public class Refactor {
 		....
 		default:
 			System.out.println("default block");
+		} catch (Exception e) {
+			
+			System.out.println("Error while matching message header");
+		}
 		
 	}
 	}	
